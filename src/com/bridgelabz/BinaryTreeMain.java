@@ -7,6 +7,7 @@ public class BinaryTreeMain {
         binaryTree.add(50);
         binaryTree.add(30);
         binaryTree.add(70);
+        binaryTree.display();
 
     }
 }
