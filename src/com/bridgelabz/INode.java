@@ -6,6 +6,7 @@ public class INode<T extends Comparable<T>> {
     INode<T> nextL;
 
     public INode(T data){
+
         this.data = data;
     }
 }

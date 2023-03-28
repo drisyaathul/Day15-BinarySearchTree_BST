@@ -10,22 +10,24 @@ public class BinaryTree<T extends Comparable<T>> {
             root = newNode;
             return;
         }
-        INode<T> currentPointer= root;
-        while(currentPointer.nextL != null && currentPointer.nextR != null) {
 
+        INode<T> currentPointer = root;
+        while (true) {
             if (data.compareTo(currentPointer.data) < 0) {
+                if (currentPointer.nextL == null) {
+                    currentPointer.nextL = newNode;
+                    return;
+                }
                 currentPointer = currentPointer.nextL;
             } else {
+                if (currentPointer.nextR == null) {
+                    currentPointer.nextR = newNode;
+                    return;
+                }
                 currentPointer = currentPointer.nextR;
             }
         }
-
-        if(data.compareTo(currentPointer.data) < 0) {
-            currentPointer.nextL = newNode;
-        } else {
-            currentPointer.nextR = newNode;
-        }
-        }
+    }
     public void traverse(INode<T> currentPointer){
 
         if (currentPointer == null)
@@ -39,6 +41,7 @@ public class BinaryTree<T extends Comparable<T>> {
         traverse(root);
     }
 }
+
 
 
 
