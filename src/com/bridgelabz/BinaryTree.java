@@ -12,6 +12,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
 
         INode<T> currentPointer = root;
+
         while (true) {
             if (data.compareTo(currentPointer.data) < 0) {
                 if (currentPointer.nextL == null) {
@@ -28,19 +29,38 @@ public class BinaryTree<T extends Comparable<T>> {
             }
         }
     }
-    public void traverse(INode<T> currentPointer){
+
+    public void display(INode<T> currentPointer) {
 
         if (currentPointer == null)
             return;
-        traverse(currentPointer.nextL);
-        System.out.print(currentPointer.data+" ");
-        traverse(currentPointer.nextR);
+        display(currentPointer.nextL);
+        System.out.print(currentPointer.data + " ");
+        display(currentPointer.nextR);
     }
 
-    public void display(){
-        traverse(root);
+    public void search(INode<T> currentPointer, T data) {
+
+        while (currentPointer != null) {
+            int value = data.compareTo(currentPointer.data);
+            switch (value) {
+                case -1:
+                    currentPointer = currentPointer.nextL;
+                    break;
+                case 1:
+                    currentPointer = currentPointer.nextR;
+                    break;
+                default:
+                    System.out.println("Element FOUND");
+                    return;
+                }
+            }
+
+            System.out.println("Element NOT Found.");
+        }
     }
-}
+
+
 
 
 
