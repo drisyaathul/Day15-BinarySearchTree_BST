@@ -21,6 +21,6 @@ public class BinaryTreeMain {
         binaryTree.add(16);
         binaryTree.add(63);
 
-        binaryTree.display();
+        binaryTree.display(binaryTree.root);
     }
 }
